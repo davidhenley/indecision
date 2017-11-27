@@ -493,11 +493,11 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(29)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(30)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(30)();
+  module.exports = __webpack_require__(31)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -994,145 +994,19 @@ module.exports = focusNode;
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(19);
 
-var _Header = __webpack_require__(28);
+var _App = __webpack_require__(28);
 
-var _Header2 = _interopRequireDefault(_Header);
-
-var _Action = __webpack_require__(31);
-
-var _Action2 = _interopRequireDefault(_Action);
-
-var _OptionList = __webpack_require__(32);
-
-var _OptionList2 = _interopRequireDefault(_OptionList);
-
-var _AddOption = __webpack_require__(34);
-
-var _AddOption2 = _interopRequireDefault(_AddOption);
+var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Root = function (_Component) {
-  _inherits(Root, _Component);
-
-  function Root() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, Root);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Root.__proto__ || Object.getPrototypeOf(Root)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      options: _this.props.options
-    }, _this.handleAddOption = function (option) {
-      if (!option) {
-        return 'No text entered';
-      } else if (_this.state.options.includes(option)) {
-        return 'Option already exists';
-      }
-      _this.setState(function (prevState) {
-        return {
-          options: [].concat(_toConsumableArray(prevState.options), [option])
-        };
-      });
-    }, _this.handleDeleteOptions = function () {
-      _this.setState(function () {
-        return { options: [] };
-      });
-    }, _this.handleDeleteOption = function (option) {
-      _this.setState(function (prevState) {
-        return {
-          options: prevState.options.filter(function (opt) {
-            return opt !== option;
-          })
-        };
-      });
-    }, _this.handlePick = function () {
-      var idx = Math.floor(Math.random() * _this.state.options.length);
-
-      var choice = _this.state.options[idx];
-
-      alert(choice);
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Root, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      try {
-        var options = JSON.parse(localStorage.getItem('options'));
-        if (options) {
-          this.setState(function () {
-            return { options: options };
-          });
-        }
-      } catch (e) {}
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate(prevProps, prevState) {
-      if (prevState.options.length !== this.state.options.length) {
-        localStorage.setItem('options', JSON.stringify(this.state.options));
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var options = this.state.options;
-
-      var title = 'Indecision';
-      var subtitle = 'Put your life in the hands of a computer';
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(_Header2.default, {
-          title: title,
-          subtitle: subtitle
-        }),
-        _react2.default.createElement(_Action2.default, {
-          hasOptions: !!options.length,
-          handlePick: this.handlePick
-        }),
-        _react2.default.createElement(_OptionList2.default, {
-          options: options,
-          handleDeleteOptions: this.handleDeleteOptions,
-          handleDeleteOption: this.handleDeleteOption
-        }),
-        _react2.default.createElement(_AddOption2.default, {
-          handleAddOption: this.handleAddOption
-        })
-      );
-    }
-  }]);
-
-  return Root;
-}(_react.Component);
-
-Root.defaultProps = {
-  options: []
-};
-
-(0, _reactDom.render)(_react2.default.createElement(Root, null), document.querySelector('#root'));
+(0, _reactDom.render)(_react2.default.createElement(_App2.default, null), document.querySelector('#root'));
 
 /***/ }),
 /* 17 */
@@ -18431,6 +18305,155 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Header = __webpack_require__(29);
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _Action = __webpack_require__(32);
+
+var _Action2 = _interopRequireDefault(_Action);
+
+var _OptionList = __webpack_require__(33);
+
+var _OptionList2 = _interopRequireDefault(_OptionList);
+
+var _AddOption = __webpack_require__(35);
+
+var _AddOption2 = _interopRequireDefault(_AddOption);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var App = function (_Component) {
+  _inherits(App, _Component);
+
+  function App() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, App);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      options: _this.props.options
+    }, _this.handleAddOption = function (option) {
+      if (!option) {
+        return 'No text entered';
+      } else if (_this.state.options.includes(option)) {
+        return 'Option already exists';
+      }
+      _this.setState(function (prevState) {
+        return {
+          options: [].concat(_toConsumableArray(prevState.options), [option])
+        };
+      });
+    }, _this.handleDeleteOptions = function () {
+      _this.setState(function () {
+        return { options: [] };
+      });
+    }, _this.handleDeleteOption = function (option) {
+      _this.setState(function (prevState) {
+        return {
+          options: prevState.options.filter(function (opt) {
+            return opt !== option;
+          })
+        };
+      });
+    }, _this.handlePick = function () {
+      var idx = Math.floor(Math.random() * _this.state.options.length);
+
+      var choice = _this.state.options[idx];
+
+      alert(choice);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(App, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      try {
+        var options = JSON.parse(localStorage.getItem('options'));
+        if (options) {
+          this.setState(function () {
+            return { options: options };
+          });
+        }
+      } catch (e) {}
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevState.options.length !== this.state.options.length) {
+        localStorage.setItem('options', JSON.stringify(this.state.options));
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var options = this.state.options;
+
+      var title = 'Indecision';
+      var subtitle = 'Put your life in the hands of a computer';
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_Header2.default, {
+          title: title,
+          subtitle: subtitle
+        }),
+        _react2.default.createElement(_Action2.default, {
+          hasOptions: !!options.length,
+          handlePick: this.handlePick
+        }),
+        _react2.default.createElement(_OptionList2.default, {
+          options: options,
+          handleDeleteOptions: this.handleDeleteOptions,
+          handleDeleteOption: this.handleDeleteOption
+        }),
+        _react2.default.createElement(_AddOption2.default, {
+          handleAddOption: this.handleAddOption
+        })
+      );
+    }
+  }]);
+
+  return App;
+}(_react.Component);
+
+App.defaultProps = {
+  options: []
+};
+
+exports.default = App;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
 var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -18483,7 +18506,7 @@ Header.propTypes = {
 exports.default = Header;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19033,7 +19056,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19098,7 +19121,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19164,7 +19187,7 @@ Action.propTypes = {
 exports.default = Action;
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19184,7 +19207,7 @@ var _propTypes = __webpack_require__(5);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Option = __webpack_require__(33);
+var _Option = __webpack_require__(34);
 
 var _Option2 = _interopRequireDefault(_Option);
 
@@ -19247,7 +19270,7 @@ OptionList.propTypes = {
 exports.default = OptionList;
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19290,7 +19313,7 @@ Option.propTypes = {
 exports.default = Option;
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19333,11 +19356,14 @@ var AddOption = function (_Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      text: ''
+      text: '',
+      error: ''
     }, _this.handleAddOption = function (e) {
       e.preventDefault();
 
       var trimmedText = _this.state.text.trim();
+
+      console.log(tessting);
 
       var error = _this.props.handleAddOption(trimmedText);
 
@@ -19354,7 +19380,8 @@ var AddOption = function (_Component) {
 
       _this.setState(function () {
         return {
-          text: e.target.value
+          text: e.target.value,
+          error: ''
         };
       });
     }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -19400,3 +19427,4 @@ exports.default = AddOption;
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=bundle.js.map

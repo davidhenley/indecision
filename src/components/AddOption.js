@@ -3,13 +3,16 @@ import PropTypes from 'prop-types';
 
 class AddOption extends Component {
   state = {
-    text: ''
+    text: '',
+    error: ''
   }
 
   handleAddOption = e => {
     e.preventDefault();
 
     const trimmedText = this.state.text.trim();
+
+    console.log(tessting);
 
     const error = this.props.handleAddOption(trimmedText);
 
@@ -25,7 +28,8 @@ class AddOption extends Component {
     e.persist();
 
     this.setState(() => ({
-      text: e.target.value
+      text: e.target.value,
+      error: ''
     }));
   }
 
