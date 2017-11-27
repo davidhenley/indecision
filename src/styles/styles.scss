@@ -1,13 +1,2 @@
-$primary-color: blue;
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: inherit;
-  color: $primary-color;
-}
-
-body {
-  box-sizing: border-box;
-  padding: 20px;
-}
+@import './base/base';
+@import './components/header';
