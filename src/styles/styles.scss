@@ -1,7 +1,10 @@
+$primary-color: blue;
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: inherit;
+  color: $primary-color;
 }
 
 body {
