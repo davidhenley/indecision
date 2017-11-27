@@ -4,10 +4,12 @@ import Header from './Header';
 import Action from './Action';
 import OptionList from './OptionList';
 import AddOption from './AddOption';
+import Modal from './Modal';
 
 class App extends Component {
   state = {
-    options: this.props.options
+    options: this.props.options,
+    selectedOption: undefined
   }
 
   componentDidMount() {
@@ -53,11 +55,15 @@ class App extends Component {
 
     const choice = this.state.options[idx];
 
-    alert(choice);
+    this.setState({ selectedOption: choice });
+  }
+
+  handleClearSelectedOption = () => {
+    this.setState({ selectedOption: undefined });
   }
 
   render() {
-    const { options } = this.state;
+    const { options, selectedOption } = this.state;
     const title = 'Indecision';
     const subtitle = 'Put your life in the hands of a computer';
     return (
@@ -77,6 +83,10 @@ class App extends Component {
         />
         <AddOption
           handleAddOption={this.handleAddOption}
+        />
+        <Modal
+          selectedOption={selectedOption}
+          handleClearSelectedOption={this.handleClearSelectedOption}
         />
       </div>
     );

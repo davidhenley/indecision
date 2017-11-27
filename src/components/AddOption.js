@@ -12,8 +12,6 @@ class AddOption extends Component {
 
     const trimmedText = this.state.text.trim();
 
-    console.log(tessting);
-
     const error = this.props.handleAddOption(trimmedText);
 
     this.setState(() => ({

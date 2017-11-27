@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Action extends Component {
-  render() {
-    return (
-      <div>
-        <button
-          onClick={this.props.handlePick}
-          disabled={!this.props.hasOptions}
-        >
-          What should I do?
-        </button>
-      </div>
-    );
-  }
-}
+const Action = (props) => (
+  <div>
+    <button
+      onClick={props.handlePick}
+      disabled={!props.hasOptions}
+    >
+      What should I do?
+    </button>
+  </div>
+);
 
 Action.propTypes = {
   handlePick: PropTypes.func.isRequired,
