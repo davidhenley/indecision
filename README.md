@@ -10,4 +10,4 @@ Usage
 
 **Run in development**
 
-`npm run dev` or `yarn run dev`
+`npm run dev` or `yarn dev`
