@@ -77,14 +77,16 @@ class App extends Component {
             hasOptions={!!options.length}
             handlePick={this.handlePick}
           />
-          <OptionList
-            options={options}
-            handleDeleteOptions={this.handleDeleteOptions}
-            handleDeleteOption={this.handleDeleteOption}
-          />
-          <AddOption
-            handleAddOption={this.handleAddOption}
-          />
+          <div className="widget">
+            <OptionList
+              options={options}
+              handleDeleteOptions={this.handleDeleteOptions}
+              handleDeleteOption={this.handleDeleteOption}
+            />
+            <AddOption
+              handleAddOption={this.handleAddOption}
+            />
+          </div>
         </div>
         <Modal
           selectedOption={selectedOption}
