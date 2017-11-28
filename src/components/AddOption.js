@@ -34,12 +34,10 @@ class AddOption extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleAddOption}>
-          <input autoFocus ref={c => this.input = c} value={this.state.text} onChange={this.onChangeText} />
+        {this.state.error && <p className="add-option-error">{this.state.error}</p>}
+        <form className="add-option" onSubmit={this.handleAddOption}>
+          <input className="add-option__input" autoFocus ref={c => this.input = c} value={this.state.text} onChange={this.onChangeText} />
           <button className="button" disabled={!this.state.text}>Add Option</button>
-          <div>
-            {this.state.error}
-          </div>
         </form>
       </div>
     );
