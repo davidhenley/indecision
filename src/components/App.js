@@ -29,7 +29,7 @@ class App extends Component {
 
   handleAddOption = option => {
     if (!option) {
-      return 'No text entered';
+      return 'Please enter a valid option';
     } else if (this.state.options.includes(option)) {
       return 'Option already exists';
     }
