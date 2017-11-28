@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 const Option = props => (
   <div>
     {props.optionText}
-    <button onClick={() => props.handleDeleteOption(props.optionText)}>
+    <button
+      className="button button--link"
+      onClick={() => props.handleDeleteOption(props.optionText)}
+    >
       Remove
     </button>
   </div>

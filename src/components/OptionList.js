@@ -6,19 +6,19 @@ import Option from './Option';
 const OptionList = (props) => (
   <div>
     <button
+      className="button button--link"
       onClick={props.handleDeleteOptions}
     >
       Remove All
     </button>
-    <div>
-      {props.options.map(option => (
-        <Option
-          key={option}
-          optionText={option}
-          handleDeleteOption={props.handleDeleteOption}
-        />
-      ))}
-    </div>
+    {!props.options.length && <div>Please add an option to get started!</div>}
+    {props.options.map(option => (
+      <Option
+        key={option}
+        optionText={option}
+        handleDeleteOption={props.handleDeleteOption}
+      />
+    ))}
   </div>
 );
 

@@ -36,7 +36,7 @@ class AddOption extends Component {
       <div>
         <form onSubmit={this.handleAddOption}>
           <input autoFocus ref={c => this.input = c} value={this.state.text} onChange={this.onChangeText} />
-          <button disabled={!this.state.text}>Add Option</button>
+          <button className="button" disabled={!this.state.text}>Add Option</button>
           <div>
             {this.state.error}
           </div>

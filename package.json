@@ -10,7 +10,6 @@
   },
   "scripts": {
     "build": "webpack -p",
-    "serve": "live-server public",
     "dev": "webpack-dev-server"
   },
   "devDependencies": {
